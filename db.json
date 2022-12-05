@@ -1,0 +1,28 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "name": "zahid",
+      "email": "zahid@gmail.com",
+      "dob": "1995-11-30",
+      "country": "pakistan",
+      "avatar": "youtube.com"
+    },
+    {
+      "id": 2,
+      "name": "zeeshan ",
+      "email": "zeeshan@gmail.com",
+      "dob": "1999-06-07",
+      "country": "pakistan",
+      "avatar": "angular.io"
+    },
+    {
+      "id": 3,
+      "name": "ali",
+      "email": "ali@gmail.com",
+      "dob": "1992-03-19",
+      "country": "pakistan",
+      "avatar": "facebook.com"
+    }
+  ]
+}

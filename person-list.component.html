@@ -1,0 +1,97 @@
+
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h2 style="color: white;">User Record App</h2>
+        <div class="d-flex">
+            <button (click)="allbtn()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add User</button>
+        </div>
+    </div>
+</nav>
+<!-- jumbotron -->
+<div class="p-4 mb-4 bg-dark rounded-3">
+    <div class="container-fluid py-5">
+   <h1 class="display-5 fw-bold" style="color: white;">Person Records Management</h1>
+   <p class="col-md-8 fs-4" style="color: white;">You Can Save Records Of Persion Using Angular</p>
+   <a href="https://www.devinsta.com/" target="_blank" class="btn btn-primary btn-lg" type="button">Devinsta</a>
+
+    </div>
+</div>
+<!-- close jumbotron -->
+<!-- make table -->
+<table class="table mt-4 container">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>DOb</th>
+            <th>Age</th>
+            <th>Country</th>
+            <th>Avatar</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of allperson">
+            <td>{{data.id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.dob}}</td>
+            <td>{{data.dob |age}}</td>
+            <td>{{data.country}}</td>
+            <td>{{data.avatar}}</td>
+            <td>
+                <button (click)="oneditperson(data)" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button> &nbsp;
+                <button (click)="deletedata(data)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">User Details</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <form [formGroup]="userform">
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" formControlName="name">
+                  </div>
+                
+                <div class="mb-3">
+                  <label class="form-label">Email</label>
+                  <input type="email" class="form-control" formControlName="email">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">DOb</label>
+                  <input type="date" class="form-control" formControlName="dob">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Country</label>
+                    <input type="country" class="form-control" formControlName="country">
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Avatar</label>
+                    <input type="text" class="form-control" formControlName="avatar">
+                  </div>
+
+              </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="clear" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button *ngIf="showadd" type="button" (click)="addperson()" class="btn btn-primary">Add</button>
+          <button *ngIf="showupdate" class="btn btn-dark" (click)="updateperson()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
